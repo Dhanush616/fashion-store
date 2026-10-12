@@ -167,6 +167,9 @@ h1, h2, h3, .font-display {
 }
 .fs-product-card {
   overflow: hidden;
+  border-radius: 28px;
+  border: 1px solid var(--fs-line);
+  padding: 10px;
   transition: transform 0.28s ease, box-shadow 0.28s ease;
 }
 .fs-product-card:hover {
@@ -176,7 +179,8 @@ h1, h2, h3, .font-display {
 .fs-img-wrap {
   position: relative;
   overflow: hidden;
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 4 / 5;
+  border-radius: 20px;
   background: var(--fs-blush);
 }
 .fs-img-wrap img {
@@ -191,8 +195,8 @@ h1, h2, h3, .font-display {
 }
 .fs-wish-btn {
   position: absolute;
-  top: 12px;
-  right: 12px;
+  top: 20px;
+  right: 20px;
   width: 38px;
   height: 38px;
   border-radius: 50%;
@@ -209,8 +213,8 @@ h1, h2, h3, .font-display {
 }
 .fs-soldout {
   position: absolute;
-  left: 12px;
-  top: 12px;
+  left: 20px;
+  top: 20px;
   background: rgba(34, 28, 21, 0.88);
   color: #fff;
   font-size: 0.7rem;
@@ -232,8 +236,16 @@ h1, h2, h3, .font-display {
 .fs-product-title {
   font-family: "Playfair Display", Georgia, serif;
   font-weight: 600;
-  font-size: 1.02rem;
+  font-size: 1.08rem;
   color: var(--fs-ink);
+}
+.fs-product-card .card-body {
+  padding: 1rem 0.5rem 0.5rem;
+}
+.fs-add-btn {
+  border-radius: 16px !important;
+  padding: 0.7rem 1rem !important;
+  font-weight: 600;
 }
 a:hover .fs-product-title {
   color: #000;

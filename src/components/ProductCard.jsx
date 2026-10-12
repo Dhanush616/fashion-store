@@ -49,7 +49,7 @@ export default function ProductCard({ product }) {
         </div>
         <div className="mt-auto d-grid">
           <button
-            className="btn btn-dark btn-sm"
+            className="btn btn-dark btn-sm fs-add-btn"
             disabled={out}
             onClick={() => addToCart(product, 1)}
           >
