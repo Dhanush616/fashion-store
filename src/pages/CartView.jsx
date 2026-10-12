@@ -9,8 +9,9 @@ export default function CartView() {
 
   if (items.length === 0) {
     return (
-      <div className="text-center py-5">
-        <h3>Your cart is empty</h3>
+      <div className="fs-empty text-center py-5 px-3 mx-auto" style={{ maxWidth: 520 }}>
+        <div className="fs-eyebrow">Cart</div>
+        <h3 className="mt-1">Your cart is empty</h3>
         <p className="text-muted">Looks like you haven’t added anything yet.</p>
         <Link to="/catalogue" className="btn btn-dark">Browse Products</Link>
       </div>
@@ -18,28 +19,34 @@ export default function CartView() {
   }
 
   return (
-    <div className="row g-4">
-      <div className="col-md-8">
-        <div className="d-flex justify-content-between align-items-center mb-3">
-          <h4 className="mb-0">Shopping Cart ({items.length})</h4>
+    <>
+      <div className="mb-4">
+        <div className="fs-eyebrow">Your Bag</div>
+        <h2 className="mt-1">Shopping cart ({items.length})</h2>
+      </div>
+      <div className="row g-4">
+        <div className="col-md-8">
+          {items.map((it) => (
+            <CartItemRow key={it.key} item={it} />
+          ))}
           <button className="btn btn-sm btn-outline-danger" onClick={clearCart}>Clear cart</button>
         </div>
-        {items.map((it) => (
-          <CartItemRow key={it.key} item={it} />
-        ))}
-      </div>
-      <div className="col-md-4">
-        <div className="card p-3 shadow-sm">
-          <h5>Order Summary</h5>
-          <div className="d-flex justify-content-between small"><span>Subtotal</span><span>{formatPrice(subtotal)}</span></div>
-          <div className="d-flex justify-content-between small"><span>Tax (8%)</span><span>{formatPrice(tax)}</span></div>
-          <div className="d-flex justify-content-between small"><span>Shipping</span><span>{shipping === 0 ? "FREE" : formatPrice(shipping)}</span></div>
-          <hr />
-          <div className="d-flex justify-content-between fw-bold"><span>Total</span><span>{formatPrice(total)}</span></div>
-          <Link to="/checkout" className="btn btn-dark w-100 mt-3">Proceed to Checkout</Link>
-          <Link to="/catalogue" className="btn btn-link btn-sm">Continue shopping</Link>
+        <div className="col-md-4">
+          <div className="fs-summary p-4">
+            <div className="fs-eyebrow mb-1">Summary</div>
+            <h5 className="font-display">Order summary</h5>
+            <div className="d-flex justify-content-between small mt-3"><span>Subtotal</span><span>{formatPrice(subtotal)}</span></div>
+            <div className="d-flex justify-content-between small"><span>Tax (8%)</span><span>{formatPrice(tax)}</span></div>
+            <div className="d-flex justify-content-between small"><span>Shipping</span><span>{shipping === 0 ? "FREE" : formatPrice(shipping)}</span></div>
+            <hr />
+            <div className="d-flex justify-content-between fw-bold fs-5"><span>Total</span><span>{formatPrice(total)}</span></div>
+            <Link to="/checkout" className="btn btn-warning w-100 mt-3">Proceed to Checkout</Link>
+            <div className="text-center mt-2">
+              <Link to="/catalogue" className="btn btn-link btn-sm text-light">Continue shopping</Link>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

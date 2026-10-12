@@ -34,52 +34,57 @@ export default function ProductDetailView() {
   };
 
   return (
-    <div className="row g-4">
+    <div className="row g-4 g-lg-5">
       <div className="col-md-6">
-        <img src={product.image} alt={product.name} className="img-fluid rounded border w-100" style={{ maxHeight: 520, objectFit: "cover" }} />
+        <img src={product.image} alt={product.name} className="img-fluid w-100 fs-detail-img" style={{ maxHeight: 560, objectFit: "cover" }} />
       </div>
       <div className="col-md-6">
-        <Link to="/catalogue" className="small">← Back to catalogue</Link>
-        <h2 className="mt-2">{product.name}</h2>
-        <div className="text-warning">{"★".repeat(Math.round(product.rating))}{"☆".repeat(5 - Math.round(product.rating))} <span className="text-muted small">({product.rating})</span></div>
-        <h3 className="mt-2">{formatPrice(product.price)}</h3>
-        <p className="small">
-          Category: <span className="badge text-bg-secondary">{product.category}</span>{" "}
-          {out ? <span className="badge text-bg-danger">Out of stock</span> : <span className="badge text-bg-success">In stock ({product.stock})</span>}
-        </p>
-        <p>{product.description}</p>
+        <Link to="/catalogue" className="fs-crumb">← Back to catalogue</Link>
+        <div className="d-flex gap-2 align-items-center mt-3 mb-1">
+          <span className="fs-chip">{product.category}</span>
+          {out
+            ? <span className="badge rounded-pill text-bg-danger">Out of stock</span>
+            : <span className="badge rounded-pill text-bg-success">In stock ({product.stock})</span>}
+        </div>
+        <h2 className="mt-1">{product.name}</h2>
+        <div className="fs-stars">
+          {"★".repeat(Math.round(product.rating))}{"☆".repeat(5 - Math.round(product.rating))}{" "}
+          <span className="text-muted small">({product.rating})</span>
+        </div>
+        <div className="fs-price mt-2" style={{ fontSize: "1.8rem" }}>{formatPrice(product.price)}</div>
+        <p className="text-muted mt-2">{product.description}</p>
 
         {product.sizes?.length > 1 && (
           <div className="mb-3">
-            <label className="form-label fw-semibold">Size</label>
+            <label className="form-label fw-semibold small text-uppercase text-muted">Size</label>
             <div className="d-flex gap-2 flex-wrap">
               {product.sizes.map((s) => (
-                <button key={s} className={`btn btn-sm ${size === s ? "btn-dark" : "btn-outline-dark"}`} onClick={() => setSize(s)}>{s}</button>
+                <button key={s} className={`btn btn-sm fs-opt ${size === s ? "btn-dark" : "btn-outline-dark"}`} onClick={() => setSize(s)}>{s}</button>
               ))}
             </div>
           </div>
         )}
         {product.colours?.length > 1 && (
           <div className="mb-3">
-            <label className="form-label fw-semibold">Colour</label>
+            <label className="form-label fw-semibold small text-uppercase text-muted">Colour</label>
             <div className="d-flex gap-2 flex-wrap">
               {product.colours.map((c) => (
-                <button key={c} className={`btn btn-sm ${colour === c ? "btn-dark" : "btn-outline-dark"}`} onClick={() => setColour(c)}>{c}</button>
+                <button key={c} className={`btn btn-sm fs-opt ${colour === c ? "btn-dark" : "btn-outline-dark"}`} onClick={() => setColour(c)}>{c}</button>
               ))}
             </div>
           </div>
         )}
 
-        <div className="d-flex align-items-center gap-2 mb-3">
-          <label className="fw-semibold">Qty:</label>
+        <div className="d-flex align-items-center gap-3 mb-4">
+          <label className="fw-semibold small text-uppercase text-muted">Qty</label>
           <div className="btn-group btn-group-sm">
-            <button className="btn btn-outline-secondary" disabled={qty <= 1} onClick={() => setQty((q) => Math.max(1, q - 1))}>−</button>
-            <span className="btn btn-light disabled">{qty}</span>
-            <button className="btn btn-outline-secondary" disabled={qty >= product.stock} onClick={() => setQty((q) => Math.min(product.stock, q + 1))}>+</button>
+            <button className="btn btn-outline-dark" disabled={qty <= 1} onClick={() => setQty((q) => Math.max(1, q - 1))}>−</button>
+            <span className="btn btn-light disabled px-3">{qty}</span>
+            <button className="btn btn-outline-dark" disabled={qty >= product.stock} onClick={() => setQty((q) => Math.min(product.stock, q + 1))}>+</button>
           </div>
         </div>
 
-        <div className="d-flex gap-2">
+        <div className="d-flex gap-2 flex-wrap">
           <Button variant="dark" disabled={out} onClick={handleAdd}>
             {out ? "Out of Stock" : added ? "Added ✓" : `Add to Cart — ${formatPrice(product.price * qty)}`}
           </Button>

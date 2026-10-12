@@ -44,10 +44,11 @@ export default function CheckoutView() {
   return (
     <div className="row g-4">
       <div className="col-md-7">
-        <div className="card p-4 shadow-sm">
-          <h4 className="mb-3">Checkout</h4>
+        <div className="card p-4 fs-form-card">
+          <div className="fs-eyebrow">Almost done</div>
+          <h2 className="mb-3 mt-1">Checkout</h2>
           <form onSubmit={handleSubmit(onSubmit)} noValidate>
-            <h6>Customer & Shipping</h6>
+            <h6 className="font-display" style={{ fontSize: "1.05rem" }}>Customer & Shipping</h6>
             {field("name", "Full Name", "John Carter", { required: "Name is required" })}
             {field("email", "Email", "you@example.com", {
               required: "Email is required",
@@ -62,7 +63,7 @@ export default function CheckoutView() {
               <div className="col-md-6">{field("city", "City", "New York", { required: "City is required" })}</div>
               <div className="col-md-6">{field("zip", "ZIP / Pincode", "10001", { required: "ZIP is required", minLength: { value: 4, message: "Too short" } })}</div>
             </div>
-            <h6 className="mt-3">Payment</h6>
+            <h6 className="mt-3 font-display" style={{ fontSize: "1.05rem" }}>Payment</h6>
             {field("card", "Card Number", "4111 1111 1111 1111", {
               required: "Card number is required",
               validate: (v) => (v.replace(/\s/g, "").length >= 12 ? true : "Enter a valid card number"),
@@ -78,8 +79,9 @@ export default function CheckoutView() {
         </div>
       </div>
       <div className="col-md-5">
-        <div className="card p-3 shadow-sm">
-          <h5>Order Summary</h5>
+        <div className="fs-summary p-4">
+          <div className="fs-eyebrow mb-1">Summary</div>
+          <h5 className="font-display">Order summary</h5>
           {items.map((it) => (
             <div key={it.key} className="d-flex justify-content-between small border-bottom py-2">
               <span>{it.product?.name} × {it.qty}</span>

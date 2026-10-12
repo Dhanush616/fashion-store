@@ -5,7 +5,13 @@ import { formatPrice } from "../utils/calculations";
 
 function Stars({ rating }) {
   const full = Math.round(rating);
-  return <span className="text-warning">{"★".repeat(full)}{"☆".repeat(5 - full)} <small className="text-muted">({rating})</small></span>;
+  return (
+    <span className="fs-stars">
+      {"★".repeat(full)}
+      {"☆".repeat(5 - full)}{" "}
+      <small className="text-muted">({rating})</small>
+    </span>
+  );
 }
 
 export default function ProductCard({ product }) {
@@ -15,33 +21,39 @@ export default function ProductCard({ product }) {
   const out = product.stock === 0;
 
   return (
-    <div className="card h-100 shadow-sm">
-      <Link to={`/product/${product.id}`} className="text-decoration-none">
-        <img src={product.image} className="card-img-top" alt={product.name} style={{ height: 220, objectFit: "cover" }} loading="lazy" />
-      </Link>
+    <div className="card h-100 fs-product-card">
+      <div className="fs-img-wrap">
+        <Link to={`/product/${product.id}`}>
+          <img src={product.image} alt={product.name} loading="lazy" />
+        </Link>
+        {out && <span className="fs-soldout">Sold out</span>}
+        <button
+          className="fs-wish-btn"
+          title={wished ? "Remove from wishlist" : "Save to wishlist"}
+          onClick={() => toggleWishlist(product.id)}
+        >
+          {wished ? "♥" : "♡"}
+        </button>
+      </div>
       <div className="card-body d-flex flex-column">
-        <div className="d-flex justify-content-between align-items-start gap-2">
-          <Link to={`/product/${product.id}`} className="text-decoration-none text-dark">
-            <h6 className="card-title mb-1">{product.name}</h6>
-          </Link>
-          <button
-            className={`btn btn-sm ${wished ? "btn-danger" : "btn-outline-danger"}`}
-            title="Wishlist"
-            onClick={() => toggleWishlist(product.id)}
-          >
-            {wished ? "♥" : "♡"}
-          </button>
-        </div>
-        <div className="small text-muted mb-1">{product.category} • {out ? <span className="text-danger">Out of stock</span> : <span className="text-success">In stock ({product.stock})</span>}</div>
+        <div className="fs-eyebrow-sm mb-1">{product.category}</div>
+        <Link to={`/product/${product.id}`} className="text-decoration-none">
+          <h6 className="fs-product-title mb-1">{product.name}</h6>
+        </Link>
         <Stars rating={product.rating} />
-        <div className="fw-bold mt-2 mb-3">{formatPrice(product.price)}</div>
+        <div className="d-flex align-items-center justify-content-between mt-2 mb-3">
+          <div className="fs-price">{formatPrice(product.price)}</div>
+          {!out && (
+            <small className="text-success fw-semibold">In stock</small>
+          )}
+        </div>
         <div className="mt-auto d-grid">
           <button
             className="btn btn-dark btn-sm"
             disabled={out}
             onClick={() => addToCart(product, 1)}
           >
-            {out ? "Unavailable" : "Quick Add to Cart"}
+            {out ? "Unavailable" : "Add to Cart"}
           </button>
         </div>
       </div>

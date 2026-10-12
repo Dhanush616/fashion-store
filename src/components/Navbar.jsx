@@ -8,10 +8,10 @@ export default function Navbar() {
   const { wishlist } = useWishlist();
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <nav className="navbar navbar-expand-lg fs-navbar sticky-top">
       <div className="container">
-        <Link className="navbar-brand fw-bold" to="/">
-          Fashion<span className="text-warning">Store</span>
+        <Link className="navbar-brand fs-brand" to="/">
+          Fashion<span>Store</span>
         </Link>
         <button
           className="navbar-toggler"
@@ -32,12 +32,12 @@ export default function Navbar() {
             <li className="nav-item">
               <NavLink className="nav-link" to="/wishlist">
                 Wishlist{" "}
-                <span className="badge text-bg-secondary">{wishlist.length}</span>
+                <span className="badge rounded-pill text-bg-secondary">{wishlist.length}</span>
               </NavLink>
             </li>
           </ul>
           <div className="d-flex gap-2 align-items-center">
-            <Link className="btn btn-sm btn-warning" to="/cart">
+            <Link className="btn btn-dark btn-sm fs-cart-btn" to="/cart">
               Cart<sup className="ms-1 fw-bold text-danger">{cartCount(items)}</sup>
             </Link>
           </div>

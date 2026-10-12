@@ -2,8 +2,8 @@ import { CATEGORIES } from "../services/products";
 
 export default function FilterSidebar({ category, setCategory, sort, setSort }) {
   return (
-    <div className="card p-3 shadow-sm">
-      <h6>Category</h6>
+    <div className="card p-3">
+      <div className="fs-eyebrow-sm mb-2">Category</div>
       <div className="list-group mb-3">
         <button
           className={`list-group-item list-group-item-action ${category === "All" ? "active" : ""}`}
@@ -21,7 +21,7 @@ export default function FilterSidebar({ category, setCategory, sort, setSort }) 
           </button>
         ))}
       </div>
-      <h6>Sort by</h6>
+      <div className="fs-eyebrow-sm mb-2 mt-1">Sort by</div>
       <select className="form-select" value={sort} onChange={(e) => setSort(e.target.value)}>
         <option value="featured">Featured</option>
         <option value="price-low">Price: Low to High</option>
