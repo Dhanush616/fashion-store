@@ -1,6 +1,7 @@
 import { useMemo, useState } from "react";
 import ProductCard from "../components/ProductCard";
 import FilterSidebar from "../components/FilterSidebar";
+import SortSelect from "../components/SortSelect";
 import { PRODUCTS } from "../services/products";
 import { useDebounce } from "../hooks/useHelpers";
 
@@ -42,12 +43,9 @@ export default function CatalogueView() {
                 onChange={(e) => setSearch(e.target.value)}
               />
             </div>
-            <select className="form-select" style={{ maxWidth: 230 }} value={sort} onChange={(e) => setSort(e.target.value)}>
-              <option value="featured">Featured</option>
-              <option value="price-low">Price: Low to High</option>
-              <option value="price-high">Price: High to Low</option>
-              <option value="rating">Top Rated</option>
-            </select>
+            <div style={{ minWidth: 210 }}>
+              <SortSelect sort={sort} setSort={setSort} />
+            </div>
           </div>
 
           <p className="text-muted small">

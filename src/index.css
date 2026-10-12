@@ -501,6 +501,75 @@ a:hover .fs-product-title {
 .fs-filters .form-select {
   border-radius: 18px;
 }
+
+/* ---------- custom sort dropdown ---------- */
+.fs-sort {
+  position: relative;
+}
+.fs-sort-btn {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  background: #fff;
+  border: 1px solid var(--fs-line);
+  border-radius: 18px;
+  padding: 0.65rem 1rem;
+  font-weight: 500;
+  color: var(--fs-ink);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.fs-sort-btn:hover, .fs-sort-btn.open {
+  border-color: var(--fs-gold);
+  box-shadow: 0 0 0 0.2rem rgba(255, 196, 0, 0.18);
+}
+.fs-sort-chev {
+  color: var(--fs-muted);
+  font-weight: 700;
+  transition: transform 0.2s ease;
+}
+.fs-sort-btn.open .fs-sort-chev {
+  transform: rotate(180deg);
+}
+.fs-sort-menu {
+  position: absolute;
+  z-index: 50;
+  top: calc(100% + 8px);
+  left: 0;
+  right: 0;
+  background: #fff;
+  border: 1px solid var(--fs-line);
+  border-radius: 18px;
+  box-shadow: var(--fs-shadow);
+  padding: 6px;
+}
+.fs-sort-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  text-align: left;
+  border: 0;
+  background: transparent;
+  padding: 0.6rem 0.8rem;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  color: var(--fs-ink);
+}
+.fs-sort-option:hover {
+  background: var(--fs-gold-soft);
+}
+.fs-sort-option.active {
+  background: var(--fs-ink);
+  color: #fff;
+  font-weight: 600;
+}
+.fs-sort-tick {
+  width: 1em;
+  font-size: 0.7em;
+  color: var(--fs-gold);
+}
 @media (max-width: 767px) {
   .fs-filters {
     position: static;

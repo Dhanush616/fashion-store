@@ -1,4 +1,5 @@
 import { CATEGORIES } from "../services/products";
+import SortSelect from "./SortSelect";
 
 export default function FilterSidebar({ category, setCategory, sort, setSort }) {
   return (
@@ -22,12 +23,7 @@ export default function FilterSidebar({ category, setCategory, sort, setSort }) 
         ))}
       </div>
       <div className="fs-eyebrow-sm mb-2 mt-1">Sort by</div>
-      <select className="form-select" value={sort} onChange={(e) => setSort(e.target.value)}>
-        <option value="featured">Featured</option>
-        <option value="price-low">Price: Low to High</option>
-        <option value="price-high">Price: High to Low</option>
-        <option value="rating">Top Rated</option>
-      </select>
+      <SortSelect sort={sort} setSort={setSort} />
       {(category !== "All" || sort !== "featured") && (
         <button
           className="btn btn-sm btn-outline-secondary mt-3"
