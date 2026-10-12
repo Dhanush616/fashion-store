@@ -1,16 +1,137 @@
-# React + Vite
+# FashionStore
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A responsive fashion e-commerce storefront built with React and Vite. FashionStore includes a browsable product catalogue, product details, wishlist and cart management, a demo login flow, and a simulated checkout experience.
 
-Currently, two official plugins are available:
+## Live Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Deploy the project to Vercel using the instructions below, or run it locally with the commands in the [Getting Started](#getting-started) section.
 
-## React Compiler
+## Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Responsive storefront layout with Bootstrap and custom CSS
+- Home page with featured products and category navigation
+- Product catalogue with:
+  - Category filtering
+  - Search
+  - Sorting
+  - Stock status
+- Product detail pages with size selection and product information
+- Wishlist support with a wishlist page
+- Shopping cart with quantity updates, item removal, and totals
+- Cart and wishlist state persisted in `localStorage`
+- Demo email/password login with a persisted local session
+- Checkout form with customer, shipping, and payment-field validation
+- Simulated order confirmation page
+- Client-side routing with React Router
 
-## Expanding the Oxlint configuration
+> **Demo note:** This is a front-end demonstration project. Login, checkout, and payment processing are simulated locally. No real authentication, database, order API, or payment gateway is connected.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## Tech Stack
+
+- React 19
+- Vite
+- React Router
+- Bootstrap 5
+- React Hook Form
+- Oxlint
+- Unsplash image URLs for product imagery
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js 18 or newer
+- npm
+
+### Installation
+
+```bash
+git clone https://github.com/Dhanush616/fashion-store.git
+cd fashion-store
+npm install
+```
+
+### Run the development server
+
+```bash
+npm run dev
+```
+
+Open the local URL shown by Vite, usually `http://localhost:5173`.
+
+### Create a production build
+
+```bash
+npm run build
+```
+
+### Preview the production build
+
+```bash
+npm run preview
+```
+
+### Run linting
+
+```bash
+npm run lint
+```
+
+## Vercel Deployment
+
+1. Open [Vercel](https://vercel.com/) and select **Add New Project**.
+2. Import the [`Dhanush616/fashion-store`](https://github.com/Dhanush616/fashion-store) GitHub repository.
+3. Vercel should detect the Vite project automatically.
+4. Use the following settings if they are not detected:
+
+   | Setting | Value |
+   | --- | --- |
+   | Framework Preset | Vite |
+   | Install Command | `npm install` |
+   | Build Command | `npm run build` |
+   | Output Directory | `dist` |
+
+5. Select **Deploy**.
+
+## Project Structure
+
+```text
+src/
+├── components/       Reusable UI components
+├── context/          Auth, cart, and wishlist state providers
+├── hooks/            Shared React hooks
+├── pages/            Route-level page views
+├── services/         Product catalogue data and helpers
+├── utils/            Pricing and calculation helpers
+├── App.jsx           Application routes and providers
+├── App.css           Application-specific styles
+└── main.jsx          React application entry point
+```
+
+## Available Routes
+
+| Route | Description |
+| --- | --- |
+| `/` | Home page |
+| `/catalogue` | Product catalogue |
+| `/product/:id` | Product details |
+| `/wishlist` | Saved products |
+| `/cart` | Shopping cart |
+| `/login` | Demo login |
+| `/checkout` | Shipping and payment form |
+| `/success` | Simulated order confirmation |
+
+## Data and Browser Storage
+
+Product data is defined locally in `src/services/products.js`. The app stores the following demo state in the browser's `localStorage`:
+
+- `fs_cart` — cart items
+- `fs_wishlist` — wishlist product IDs
+- `fs_user` — demo login session
+- `fs_last_order` — most recent simulated order
+
+To reset the demo state, clear the site's local storage in your browser's developer tools.
+
+## License
+
+This project is provided for demonstration and educational purposes.
