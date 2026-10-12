@@ -54,7 +54,7 @@ export default function Navbar() {
                 </button>
               </>
             ) : (
-              <Link className="btn btn-sm btn-outline-dark" to="/login">
+              <Link className="btn btn-dark btn-sm fs-cart-btn" to="/login">
                 Login
               </Link>
             )}
