@@ -9,11 +9,10 @@ export default function Footer() {
             <Link className="navbar-brand fs-brand" to="/">
               Fashion<span>Store</span>
             </Link>
-            <p className="small mt-2 mb-1" style={{ maxWidth: 340 }}>
+            <p className="small mt-2 mb-0" style={{ maxWidth: 340 }}>
               A curated fashion shopping experience — browse the catalogue,
               save favourites and checkout in seconds.
             </p>
-            <p className="small text-secondary mb-0">Team: Umar • Dhanush • Evan</p>
           </div>
           <div className="col-6 col-md-3">
             <div className="fs-eyebrow mb-2">Shop</div>
