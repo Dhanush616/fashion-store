@@ -8,7 +8,6 @@ export default function SuccessView() {
 
   return (
     <div className="text-center py-5">
-      <div className="display-4">✅</div>
       <h2 className="mt-2">Order Placed Successfully!</h2>
       <p className="text-muted">Order ID: <strong>{orderId}</strong></p>
       <p className="fw-bold">Amount Paid: {formatPrice(total)}</p>

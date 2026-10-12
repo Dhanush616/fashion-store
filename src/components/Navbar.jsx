@@ -1,14 +1,11 @@
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 import { useWishlist } from "../context/WishlistContext";
-import { useAuth } from "../context/AuthContext";
 import { cartCount } from "../utils/calculations";
 
 export default function Navbar() {
   const { items } = useCart();
   const { wishlist } = useWishlist();
-  const { user, logout } = useAuth();
-  const navigate = useNavigate();
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
@@ -46,24 +43,6 @@ export default function Navbar() {
             </li>
           </ul>
           <div className="d-flex gap-2 align-items-center">
-            {user ? (
-              <>
-                <span className="text-light small">Hi, {user.name}</span>
-                <button
-                  className="btn btn-sm btn-outline-light"
-                  onClick={() => {
-                    logout();
-                    navigate("/");
-                  }}
-                >
-                  Logout
-                </button>
-              </>
-            ) : (
-              <Link className="btn btn-sm btn-outline-light" to="/login">
-                Login
-              </Link>
-            )}
             <Link className="btn btn-sm btn-warning" to="/cart">
               Cart ({cartCount(items)})
             </Link>
