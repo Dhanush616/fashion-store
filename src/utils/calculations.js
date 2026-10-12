@@ -1,10 +1,17 @@
 export const TAX_RATE = 0.08;
-export const FREE_SHIPPING_THRESHOLD = 100;
-export const SHIPPING_FLAT = 9.99;
+export const FREE_SHIPPING_THRESHOLD = 999;
+export const SHIPPING_FLAT = 49;
 
 export function formatPrice(value) {
   const num = Number(value) || 0;
-  return `$${num.toFixed(2)}`;
+  const decimals = Number.isInteger(num) ? 0 : 2;
+  return (
+    "₹" +
+    num.toLocaleString("en-IN", {
+      minimumFractionDigits: decimals,
+      maximumFractionDigits: 2,
+    })
+  );
 }
 
 export function cartItemTotal(item) {
