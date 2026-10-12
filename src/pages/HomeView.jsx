@@ -22,27 +22,6 @@ const CATEGORY_TILES = [
   },
 ];
 
-const TESTIMONIALS = [
-  {
-    quote: "The fit guide is spot on and delivery was super quick. My new favourite store!",
-    name: "Priya S.",
-    detail: "Verified buyer • Mumbai",
-    featured: false,
-  },
-  {
-    quote: "Loved the collection — premium quality at honest prices. Checkout took a minute!",
-    name: "Rahul M.",
-    detail: "Verified buyer • Delhi",
-    featured: true,
-  },
-  {
-    quote: "Wishlist + fast filters make shopping so easy. The boots are even better in person.",
-    name: "Ananya K.",
-    detail: "Verified buyer • Bengaluru",
-    featured: false,
-  },
-];
-
 function PromoCard({ productId, title }) {
   const p = getProductById(productId);
   if (!p) return null;
@@ -144,26 +123,6 @@ export default function HomeView() {
         {featured.map((p) => (
           <div className="col-6 col-md-4 col-lg-3" key={p.id}>
             <ProductCard product={p} />
-          </div>
-        ))}
-      </div>
-
-      {/* ---- testimonials ---- */}
-      <div className="fs-section-head">
-        <div>
-          <div className="fs-eyebrow">Reviews</div>
-          <h4>Testimonials</h4>
-        </div>
-      </div>
-      <div className="row g-4">
-        {TESTIMONIALS.map((t) => (
-          <div className="col-md-4" key={t.name}>
-            <div className={`fs-quote-card${t.featured ? " featured" : ""}`}>
-              <div className="fs-stars mb-2">★★★★★</div>
-              <p className="mb-3" style={{ fontSize: "0.95rem" }}>“{t.quote}”</p>
-              <strong>{t.name}</strong>
-              <div className="small opacity-75">{t.detail}</div>
-            </div>
           </div>
         ))}
       </div>
