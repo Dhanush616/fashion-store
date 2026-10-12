@@ -425,6 +425,11 @@ a:hover .fs-product-title {
   border-radius: 22px;
   box-shadow: var(--fs-shadow);
 }
+.fs-summary .fs-eyebrow {
+  background: none;
+  color: var(--fs-gold);
+  line-height: 1.6;
+}
 .fs-summary hr {
   border-color: rgba(255, 255, 255, 0.16);
 }
