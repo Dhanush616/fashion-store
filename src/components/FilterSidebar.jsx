@@ -2,7 +2,7 @@ import { CATEGORIES } from "../services/products";
 
 export default function FilterSidebar({ category, setCategory, sort, setSort }) {
   return (
-    <div className="card p-3">
+    <div className="card p-3 fs-filters">
       <div className="fs-eyebrow-sm mb-2">Category</div>
       <div className="list-group mb-3">
         <button
