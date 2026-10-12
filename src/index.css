@@ -34,6 +34,7 @@ h1, h2, h3, .font-display {
   font-weight: 800;
   color: var(--fs-ink);
   display: inline-block;
+  max-width: fit-content;
   padding: 0 0.3em;
   background: linear-gradient(transparent 55%, var(--fs-gold) 55%);
 }
