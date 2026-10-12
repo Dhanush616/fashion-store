@@ -77,10 +77,10 @@ export default function ProductDetailView() {
 
         <div className="d-flex align-items-center gap-3 mb-4">
           <label className="fw-semibold small text-uppercase text-muted">Qty</label>
-          <div className="btn-group btn-group-sm">
-            <button className="btn btn-outline-dark" disabled={qty <= 1} onClick={() => setQty((q) => Math.max(1, q - 1))}>−</button>
-            <span className="btn btn-light disabled px-3">{qty}</span>
-            <button className="btn btn-outline-dark" disabled={qty >= product.stock} onClick={() => setQty((q) => Math.min(product.stock, q + 1))}>+</button>
+          <div className="fs-qty" role="group" aria-label="Quantity">
+            <button disabled={qty <= 1} onClick={() => setQty((q) => Math.max(1, q - 1))} aria-label="Decrease quantity">−</button>
+            <span>{qty}</span>
+            <button disabled={qty >= product.stock} onClick={() => setQty((q) => Math.min(product.stock, q + 1))} aria-label="Increase quantity">+</button>
           </div>
         </div>
 

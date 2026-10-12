@@ -570,6 +570,40 @@ a:hover .fs-product-title {
   font-size: 0.7em;
   color: var(--fs-gold);
 }
+
+/* ---------- quantity stepper ---------- */
+.fs-qty {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--fs-line);
+  border-radius: 999px;
+  background: #fff;
+  overflow: hidden;
+  box-shadow: var(--fs-shadow-sm);
+}
+.fs-qty button {
+  border: 0;
+  background: transparent;
+  width: 36px;
+  height: 36px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--fs-ink);
+  transition: background 0.15s ease;
+}
+.fs-qty button:hover:not(:disabled) {
+  background: var(--fs-gold-soft);
+}
+.fs-qty button:disabled {
+  opacity: 0.25;
+  cursor: default;
+}
+.fs-qty span {
+  min-width: 2rem;
+  text-align: center;
+  font-weight: 700;
+}
 @media (max-width: 767px) {
   .fs-filters {
     position: static;

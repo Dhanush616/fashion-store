@@ -23,10 +23,10 @@ export default function CartItemRow({ item }) {
           </div>
         </div>
         <div className="col-md-2">
-          <div className="btn-group btn-group-sm" role="group">
-            <button className="btn btn-outline-secondary" onClick={() => updateQty(item.key, item.qty - 1)}>−</button>
-            <span className="btn btn-light disabled">{item.qty}</span>
-            <button className="btn btn-outline-secondary" onClick={() => updateQty(item.key, item.qty + 1)}>+</button>
+          <div className="fs-qty" role="group" aria-label="Quantity">
+            <button onClick={() => updateQty(item.key, item.qty - 1)} aria-label="Decrease quantity">−</button>
+            <span>{item.qty}</span>
+            <button onClick={() => updateQty(item.key, item.qty + 1)} aria-label="Increase quantity">+</button>
           </div>
         </div>
         <div className="col-md-2 text-end pe-3">
