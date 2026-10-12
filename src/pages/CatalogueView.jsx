@@ -33,7 +33,7 @@ export default function CatalogueView() {
           <FilterSidebar category={category} setCategory={setCategory} sort={sort} setSort={setSort} />
         </div>
         <div className="col-md-9">
-          <div className="d-flex flex-column flex-md-row gap-2 mb-3">
+          <div className="d-flex flex-column flex-md-row gap-2 mb-3 fs-toolbar-sticky">
             <div className="fs-searchbar flex-grow-1">
               <span className="fs-search-icon">⌕</span>
               <input

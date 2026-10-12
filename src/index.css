@@ -494,6 +494,16 @@ a:hover .fs-product-title {
   font-weight: 600;
 }
 
+/* sticky catalogue toolbar — search stays visible while scrolling */
+.fs-toolbar-sticky {
+  position: sticky;
+  top: 66px;
+  z-index: 40;
+  background: rgba(250, 246, 240, 0.94);
+  backdrop-filter: blur(10px);
+  padding: 0.6rem 0;
+}
+
 /* sticky filter column — sidebar stays put, products scroll */
 .fs-filters {
   position: sticky;
