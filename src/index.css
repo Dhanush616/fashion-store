@@ -167,9 +167,9 @@ h1, h2, h3, .font-display {
 }
 .fs-product-card {
   overflow: hidden;
-  border-radius: 28px;
+  border-radius: 36px;
   border: 1px solid var(--fs-line);
-  padding: 10px;
+  padding: 12px;
   transition: transform 0.28s ease, box-shadow 0.28s ease;
 }
 .fs-product-card:hover {
@@ -180,7 +180,7 @@ h1, h2, h3, .font-display {
   position: relative;
   overflow: hidden;
   aspect-ratio: 4 / 5;
-  border-radius: 20px;
+  border-radius: 26px;
   background: var(--fs-blush);
 }
 .fs-img-wrap img {
@@ -243,8 +243,8 @@ h1, h2, h3, .font-display {
   padding: 1rem 0.5rem 0.5rem;
 }
 .fs-add-btn {
-  border-radius: 16px !important;
-  padding: 0.7rem 1rem !important;
+  border-radius: 22px !important;
+  padding: 0.8rem 1rem !important;
   font-weight: 600;
 }
 a:hover .fs-product-title {
