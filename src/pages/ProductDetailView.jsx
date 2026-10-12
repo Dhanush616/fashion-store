@@ -12,7 +12,6 @@ export default function ProductDetailView() {
   const { addToCart } = useCart();
   const { toggleWishlist, isWishlisted } = useWishlist();
   const [size, setSize] = useState(product?.sizes?.[0] || "");
-  const [colour, setColour] = useState(product?.colours?.[0] || "");
   const [qty, setQty] = useState(1);
   const [added, setAdded] = useState(false);
 
@@ -28,7 +27,7 @@ export default function ProductDetailView() {
   const wished = isWishlisted(product.id);
 
   const handleAdd = () => {
-    addToCart(product, qty, { size, colour });
+    addToCart(product, qty, { size });
     setAdded(true);
     setTimeout(() => setAdded(false), 1500);
   };
@@ -64,17 +63,6 @@ export default function ProductDetailView() {
             </div>
           </div>
         )}
-        {product.colours?.length > 1 && (
-          <div className="mb-3">
-            <label className="form-label fw-semibold small text-uppercase text-muted">Colour</label>
-            <div className="d-flex gap-2 flex-wrap">
-              {product.colours.map((c) => (
-                <button key={c} className={`btn btn-sm fs-opt ${colour === c ? "btn-dark" : "btn-outline-dark"}`} onClick={() => setColour(c)}>{c}</button>
-              ))}
-            </div>
-          </div>
-        )}
-
         <div className="d-flex align-items-center gap-3 mb-4">
           <label className="fw-semibold small text-uppercase text-muted">Qty</label>
           <div className="fs-qty" role="group" aria-label="Quantity">

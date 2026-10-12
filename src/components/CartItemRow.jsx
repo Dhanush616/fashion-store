@@ -16,8 +16,7 @@ export default function CartItemRow({ item }) {
           <div className="card-body py-2" style={{ boxShadow: "none" }}>
             <h6 className="mb-1 font-display" style={{ fontSize: "1rem" }}>{p.name}</h6>
             <div className="small text-muted">
-              {item.size && <>Size: {item.size} </>}
-              {item.colour && <>• Colour: {item.colour}</>}
+              {item.size && <>Size: {item.size}</>}
             </div>
             <div className="small">{formatPrice(p.price)} each</div>
           </div>

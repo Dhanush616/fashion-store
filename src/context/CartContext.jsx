@@ -24,7 +24,7 @@ export function CartProvider({ children }) {
 
   const addToCart = (product, qty = 1, variant = {}) => {
     if (!product || product.stock === 0) return;
-    const key = `${product.id}_${variant.size || ""}_${variant.colour || ""}`;
+    const key = `${product.id}_${variant.size || ""}`;
     setItems((prev) => {
       const found = prev.find((i) => i.key === key);
       if (found) {
@@ -40,7 +40,6 @@ export function CartProvider({ children }) {
           product,
           qty,
           size: variant.size || product.sizes?.[0] || "One Size",
-          colour: variant.colour || product.colours?.[0] || "",
         },
       ];
     });
