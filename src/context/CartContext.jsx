@@ -1,4 +1,4 @@
-import { createContext, useContext, useMemo, useState, useEffect } from "react";
+import { createContext, useCallback, useContext, useMemo, useState, useEffect } from "react";
 
 const CartContext = createContext(null);
 
@@ -22,7 +22,7 @@ export function CartProvider({ children }) {
     }
   }, [items]);
 
-  const addToCart = (product, qty = 1, variant = {}) => {
+  const addToCart = useCallback((product, qty = 1, variant = {}) => {
     if (!product || product.stock === 0) return;
     const key = `${product.id}_${variant.size || ""}`;
     setItems((prev) => {
@@ -43,22 +43,22 @@ export function CartProvider({ children }) {
         },
       ];
     });
-  };
+  }, []);
 
-  const updateQty = (key, qty) => {
+  const updateQty = useCallback((key, qty) => {
     setItems((prev) =>
       qty <= 0
         ? prev.filter((i) => i.key !== key)
         : prev.map((i) => (i.key === key ? { ...i, qty } : i))
     );
-  };
+  }, []);
 
-  const removeItem = (key) => setItems((prev) => prev.filter((i) => i.key !== key));
-  const clearCart = () => setItems([]);
+  const removeItem = useCallback((key) => setItems((prev) => prev.filter((i) => i.key !== key)), []);
+  const clearCart = useCallback(() => setItems([]), []);
 
   const value = useMemo(
     () => ({ items, addToCart, updateQty, removeItem, clearCart }),
-    [items]
+    [items, addToCart, updateQty, removeItem, clearCart]
   );
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 }
