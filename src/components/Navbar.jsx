@@ -44,7 +44,7 @@ export default function Navbar() {
               <>
                 <span className="small fw-semibold">Hi, {user.name}</span>
                 <button
-                  className="btn btn-sm btn-outline-dark"
+                  className="btn btn-dark btn-sm fs-cart-btn"
                   onClick={() => {
                     logout();
                     navigate("/");
