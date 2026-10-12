@@ -492,6 +492,14 @@ a:hover .fs-product-title {
 .fs-filters {
   position: sticky;
   top: 84px;
+  border-radius: 24px;
+}
+.fs-filters .list-group {
+  border-radius: 18px;
+  overflow: hidden;
+}
+.fs-filters .form-select {
+  border-radius: 18px;
 }
 @media (max-width: 767px) {
   .fs-filters {
