@@ -38,7 +38,7 @@ export default function Navbar() {
           </ul>
           <div className="d-flex gap-2 align-items-center">
             <Link className="btn btn-sm btn-warning" to="/cart">
-              Cart ({cartCount(items)})
+              Cart<sup className="ms-1 fw-bold">{cartCount(items)}</sup>
             </Link>
           </div>
         </div>
