@@ -35,12 +35,6 @@ export default function Navbar() {
                 <span className="badge text-bg-secondary">{wishlist.length}</span>
               </NavLink>
             </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" to="/cart">
-                Cart{" "}
-                <span className="badge text-bg-warning">{cartCount(items)}</span>
-              </NavLink>
-            </li>
           </ul>
           <div className="d-flex gap-2 align-items-center">
             <Link className="btn btn-sm btn-warning" to="/cart">
