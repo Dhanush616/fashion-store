@@ -135,3 +135,4 @@ To reset the demo state, clear the site's local storage in your browser's develo
 ## License
 
 This project is provided for demonstration and educational purposes.
+
