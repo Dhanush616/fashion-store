@@ -458,6 +458,15 @@ a:hover .fs-product-title {
 .fs-footer a:hover {
   color: var(--fs-gold-soft);
 }
+.fs-footer .fs-brand span {
+  background: none;
+  color: var(--fs-gold);
+}
+.fs-footer .fs-eyebrow {
+  background: none;
+  color: var(--fs-gold);
+  line-height: 1.6;
+}
 .fs-footer-bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.12);
 }
