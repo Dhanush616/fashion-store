@@ -1,138 +1,266 @@
 # FashionStore
 
-A responsive fashion e-commerce storefront built with React and Vite. FashionStore includes a browsable product catalogue, product details, wishlist and cart management, a demo login flow, and a simulated checkout experience.
+A responsive fashion e-commerce storefront built with **React 19 and Vite**. FashionStore provides a seamless shopping experience with product browsing, search and filtering, product details, wishlist management, a shopping cart, demo authentication, and a simulated checkout process.
 
-## Live Demo
+The project demonstrates the core features of a modern e-commerce application using a component-based architecture, client-side routing, and browser-based state persistence.
 
-Deploy the project to Vercel using the instructions below, or run it locally with the commands in the [Getting Started](#getting-started) section.
+## Table of Contents
+
+- [Overview](#overview)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Getting Started](#getting-started)
+- [Available Scripts](#available-scripts)
+- [Project Structure](#project-structure)
+- [Application Routes](#application-routes)
+- [Data and State Management](#data-and-state-management)
+- [Deployment](#deployment)
+- [Limitations](#limitations)
+- [License](#license)
+
+## Overview
+
+FashionStore is a front-end e-commerce application designed to simulate the essential functionality of an online fashion store. Users can explore products, view product details, save their favorites, manage their shopping cart, sign in through a demo login flow, and complete a simulated checkout.
+
+The application is built with React and Vite, with Bootstrap and custom CSS for responsive styling. React Router handles navigation, while `localStorage` preserves selected shopping and session data between browser visits.
 
 ## Features
 
-- Responsive storefront layout with Bootstrap and custom CSS
-- Home page with featured products and category navigation
-- Product catalogue with:
-  - Category filtering
-  - Search
-  - Sorting
-  - Stock status
-- Product detail pages with size selection and product information
-- Wishlist support with a wishlist page
-- Shopping cart with quantity updates, item removal, and totals
-- Cart and wishlist state persisted in `localStorage`
-- Demo email/password login with a persisted local session
-- Checkout form with customer, shipping, and payment-field validation
-- Simulated order confirmation page
-- Client-side routing with React Router
+### Product Discovery
+- Browse a product catalogue with product information and imagery.
+- Filter products by category.
+- Search for products.
+- Sort products based on available sorting options.
+- View product availability and stock status.
+- Open individual product detail pages.
 
-> **Demo note:** This is a front-end demonstration project. Login, checkout, and payment processing are simulated locally. No real authentication, database, order API, or payment gateway is connected.
+### Product Details
+- View detailed product information.
+- Select available product sizes.
+- Navigate between the catalogue and individual product pages.
+
+### Wishlist Management
+- Add products to a wishlist.
+- View saved products on a dedicated wishlist page.
+- Persist wishlist data using browser `localStorage`.
+
+### Shopping Cart
+- Add products to the cart.
+- Update item quantities.
+- Remove individual items.
+- View item totals and the overall cart total.
+- Persist cart data across browser sessions.
+
+### Authentication
+- Demo email and password login.
+- Persist the demo login session locally.
+- Support a front-end authentication flow without a connected authentication service.
+
+### Checkout
+- Enter customer and shipping information.
+- Validate checkout form fields.
+- Enter payment-related information for the simulated checkout.
+- Display an order confirmation page after the demo checkout flow.
+
+### User Experience
+- Responsive layouts for desktop, tablet, and mobile screens.
+- Reusable React components.
+- Client-side navigation with React Router.
+- Bootstrap 5 styling combined with custom CSS.
+- Local browser storage for persistent demo state.
 
 ## Tech Stack
 
-- React 19
-- Vite
-- React Router
-- Bootstrap 5
-- React Hook Form
-- Oxlint
-- Unsplash image URLs for product imagery
+| Technology | Purpose |
+|---|---|
+| React 19 | Component-based user interface |
+| Vite | Development server and production build tooling |
+| React Router | Client-side routing and navigation |
+| Bootstrap 5 | Responsive layout and UI styling |
+| Custom CSS | Application-specific styling |
+| React Hook Form | Form state management and validation |
+| `localStorage` | Persistent client-side demo state |
+| Oxlint | Code linting |
+| Unsplash | Product imagery |
 
 ## Getting Started
 
+Follow these steps to run FashionStore on your local machine.
+
 ### Prerequisites
 
-- Node.js 18 or newer
-- npm
+Ensure the following tools are installed:
 
-### Installation
+- **Node.js:** Version 18 or newer
+- **npm:** Included with Node.js
+- **Git:** Required to clone the repository
+
+Verify your installations:
+
+```bash
+node --version
+npm --version
+git --version
+```
+
+### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/Dhanush616/fashion-store.git
+```
+
+### 2. Navigate to the Project Directory
+
+```bash
 cd fashion-store
+```
+
+### 3. Install Dependencies
+
+```bash
 npm install
 ```
 
-### Run the development server
+### 4. Start the Development Server
 
 ```bash
 npm run dev
 ```
 
-Open the local URL shown by Vite, usually `http://localhost:5173`.
+Vite will display the local development URL in your terminal. The default URL is usually:
 
-### Create a production build
+```text
+http://localhost:5173
+```
+
+Open the URL in your browser to explore the application.
+
+## Available Scripts
+
+Run the following commands from the project root.
+
+| Command | Description |
+|---|---|
+| `npm run dev` | Starts the Vite development server |
+| `npm run build` | Creates an optimized production build |
+| `npm run preview` | Serves the production build locally for preview |
+| `npm run lint` | Runs the project's linting checks |
+
+To verify the production build, run:
 
 ```bash
 npm run build
-```
-
-### Preview the production build
-
-```bash
 npm run preview
 ```
 
-### Run linting
-
-```bash
-npm run lint
-```
-
-## Vercel Deployment
-
-1. Open [Vercel](https://vercel.com/) and select **Add New Project**.
-2. Import the [`Dhanush616/fashion-store`](https://github.com/Dhanush616/fashion-store) GitHub repository.
-3. Vercel should detect the Vite project automatically.
-4. Use the following settings if they are not detected:
-
-   | Setting | Value |
-   | --- | --- |
-   | Framework Preset | Vite |
-   | Install Command | `npm install` |
-   | Build Command | `npm run build` |
-   | Output Directory | `dist` |
-
-5. Select **Deploy**.
-
 ## Project Structure
 
+The application follows a modular structure that separates reusable components, application state, pages, and utility logic.
+
 ```text
-src/
-├── components/       Reusable UI components
-├── context/          Auth, cart, and wishlist state providers
-├── hooks/            Shared React hooks
-├── pages/            Route-level page views
-├── services/         Product catalogue data and helpers
-├── utils/            Pricing and calculation helpers
-├── App.jsx           Application routes and providers
-├── App.css           Application-specific styles
-└── main.jsx          React application entry point
+fashion-store/
+├── public/                 Static assets
+├── src/
+│   ├── components/         Reusable UI components
+│   ├── context/             Authentication, cart, and wishlist state
+│   ├── hooks/               Shared React hooks
+│   ├── pages/               Route-level page components
+│   ├── services/            Product data and related helpers
+│   ├── utils/               Pricing and calculation utilities
+│   ├── App.jsx               Application routes and providers
+│   ├── App.css               Application-specific styles
+│   └── main.jsx              Application entry point
+├── index.html                HTML entry point
+├── package.json              Dependencies and npm scripts
+├── package-lock.json         Locked dependency versions
+└── vite.config.js             Vite configuration
 ```
 
-## Available Routes
+The structure above describes the main application organization. Additional configuration files may be present in the repository.
+
+## Application Routes
+
+FashionStore uses React Router to provide client-side navigation between the following pages.
 
 | Route | Description |
-| --- | --- |
-| `/` | Home page |
-| `/catalogue` | Product catalogue |
-| `/product/:id` | Product details |
+|---|---|
+| `/` | Home page with featured products and category navigation |
+| `/catalogue` | Product catalogue with search, filtering, and sorting |
+| `/product/:id` | Individual product details and size selection |
 | `/wishlist` | Saved products |
-| `/cart` | Shopping cart |
-| `/login` | Demo login |
-| `/checkout` | Shipping and payment form |
+| `/cart` | Cart items, quantities, and totals |
+| `/login` | Demo login page |
+| `/checkout` | Customer, shipping, and payment-related form |
 | `/success` | Simulated order confirmation |
 
-## Data and Browser Storage
+## Data and State Management
 
-Product data is defined locally in `src/services/products.js`. The app stores the following demo state in the browser's `localStorage`:
+### Product Catalogue
 
-- `fs_cart` — cart items
-- `fs_wishlist` — wishlist product IDs
-- `fs_user` — demo login session
-- `fs_last_order` — most recent simulated order
+Product data is defined locally in:
 
-To reset the demo state, clear the site's local storage in your browser's developer tools.
+```text
+src/services/products.js
+```
 
-## License
+This allows the storefront to display and manage product information without requiring a remote product API.
 
-This project is provided for demonstration and educational purposes.
+### Browser Storage
 
+The application uses the browser's `localStorage` to retain selected demo data between sessions.
+
+| Storage Key | Purpose |
+|---|---|
+| `fs_cart` | Shopping cart items |
+| `fs_wishlist` | Saved product IDs |
+| `fs_user` | Demo login session |
+| `fs_last_order` | Most recent simulated order |
+
+### Resetting Application Data
+
+To reset the stored demo state:
+
+1. Open the application in your browser.
+2. Open Developer Tools.
+3. Navigate to the browser's storage or application panel.
+4. Select the site's local storage.
+5. Remove the relevant `fs_` entries or clear the site's local storage.
+
+Reload the application to start with a fresh demo state.
+
+## Deployment
+
+FashionStore can be deployed to [Vercel](https://vercel.com/) using the connected GitHub repository.
+
+### Deploy Using Vercel
+
+1. Push the project to a GitHub repository.
+2. Sign in to Vercel.
+3. Select **Add New Project**.
+4. Import the repository: [Dhanush616/fashion-store](https://github.com/Dhanush616/fashion-store).
+5. Confirm the project configuration.
+6. Select **Deploy**.
+
+Use the following settings if Vercel does not detect them automatically.
+
+| Setting | Value |
+|---|---|
+| Framework Preset | Vite |
+| Install Command | `npm install` |
+| Build Command | `npm run build` |
+| Output Directory | `dist` |
+
+Once deployment completes, Vercel will provide a URL for the hosted application.
+
+For more information, refer to the [Vercel documentation](https://vercel.com/docs).
+
+## Limitations
+
+FashionStore is a front-end demonstration project. Its current functionality is intended for learning and demonstration rather than production commerce.
+
+- **Authentication:** Login is simulated locally. No real authentication provider or server-side session management is connected.
+- **Product data:** The catalogue is maintained locally rather than retrieved from a product database or external API.
+- **Cart and wishlist:** Data is stored in the current browser's `localStorage` and is not synchronized across devices.
+- **Checkout:** The checkout flow demonstrates form validation and order confirmation without creating a real order.
+- **Payments:** No payment gateway is integrated, and no actual payment is processed.
+- **Order management:** Order information is
